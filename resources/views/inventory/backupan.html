@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset ('assets/templateinventory/inventory.ico') }}">
+        <link href="{{ asset('assets/templateinventory/css/metro-icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/templateinventory/css/metro-schemes.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/templateinventory/css/metro.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/templateinventory/css/docs.css') }}" rel="stylesheet">
+        <script src="{{ asset('assets/templateinventory/js/jquery-2.1.3.min.js') }}"></script>
+        <script src="{{ asset('assets/templateinventory/js/metro.js') }}"></script>
+        <script src="{{ asset('assets/templateinventory/js/docs.js') }}"></script>
+        <script src="{{ asset('assets/templateinventory/js/select2.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset ('assets/templateinventory/css/style.css') }}">
+        <script type="text/javascript" src="{{ asset ('assets/templateinventory/js/TweenLite.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset ('assets/templateinventory/js/TweenMax.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset ('assets/templateinventory/js/jquery-1.8.3.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset ('assets/templateinventory/js/gerak.js') }}"></script>
+
+        <script language="javascript">
+    function hanyaAngka(e, decimal) {
+    var key;
+    var keychar;
+     if (window.event) {
+         key = window.event.keyCode;
+     } else
+     if (e) {
+         key = e.which;
+     } else return true;
+
+    keychar = String.fromCharCode(key);
+    if ((key==null) || (key==0) || (key==8) ||  (key==9) || (key==13) || (key==27) ) {
+        return true;
+    } else
+    if ((("0123456789").indexOf(keychar) > -1)) {
+        return true;
+    } else
+    if (decimal && (keychar == ".")) {
+        return true;
+    } else return false;
+    }
+</script>
+
+<link rel="stylesheet" type="text/css" href="{{ asset ('assets/templateinventory/css/style.css') }}">
+<script type="text/javascript" src="{{ asset ('assets/templateinventory/js/TweenLite.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('assets/templateinventory/js/TweenMax.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('assets/templateinventory/js/jquery-1.8.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('assets/templateinventory/js/gerak.js') }}"></script>
+<title>Tambah Produk</title>
+
+<div class="app-bar navy" data-role="appbar">
+				<a class="app-bar-element" href="{!! url('/inventory') !!}"> <img style="height: 28px; display: inline-block; margin-right: 10px;" src="{{asset('assets/templateinventory/images/inventory.png') }}"> Menu Utama</a>
+				<a href="{!! url('/login') !!}" class="app-bar-element place-right"> <span class="mif-switch"></span> Log Out</a>
+				<span class="app-bar-divider"></span>
+				<ul class="app-bar-menu">
+				 <li>
+					<a href="" class="dropdown-toggle"> <span class="mif-enter"></span> Pindah Ke</a>
+						<ul class="d-menu" data-role="dropdown">
+								<li><a href="/lapbarangmasuk">  <span class="mif-file-excel"></span> &nbsp;Laporan Barang Masuk</a></li>
+								<li><a href="/lapbarangkeluar">  <span class="mif-file-excel"></span> &nbsp;Laporan Barang Keluar</a></li>
+								<li><a href="/masterproduk">  <span class="mif-database"></span> &nbsp;Master Produk</a></li>
+								<li><a href="/masterkonfigurasi">  <span class="mif-tools"></span> &nbsp;Master Konfigurasi</a></li>
+				</li>
+		</div>
+
+</head>
+
+<body class="metro" style="width:100%;">
+      <div class="cell"style="margin-top:4%;">
+      <h1><a href="{!! url('/inventory') !!}" class="nav-button transform" style="margin-left: 5%;"><span></span></a>Tambah Produk</h1>
+      <hr style="margin-left: 5%; margin-right: 5%;">
+
+    <div class="cell colspan10" style="width:100%;">
+
+      <div  style="width:100%;">
+				<div>
+        <div class="panel" style="margin-left: 5%; margin-right: 5%;">
+             <div class="heading">
+         <span class="icon mif-dropbox"></span>
+         <span class="title">Tambah Produk</span>
+     </div>
+
+ <div class="content">
+     <form action="{!!url('tambahproduk/save')!!}" method="POST" enctype="multipart/form-data">
+     <div class="cell" align="center">
+
+         <div class="input-control text" style="width:45%;margin-right:10px;">
+             <input name="barcode" required type="numeric" onkeypress="return hanyaAngka(event, false)" placeholder="Barcode Produk">
+         </div>
+
+         <button class="button success" disabled="disabled"> Rp.</button>
+         <div class="input-control text" style="width:45%; margin-left:0;">
+             <input name="harga_beli" required type="text" onkeypress="return hanyaAngka(event, false)" placeholder="Harga Beli">
+         </div>
+     </div>
+
+      <div class="cell" align="center">
+
+         <div class="input-control text" style="width:45%;margin-right:10px;">
+             <input name="nama_produk" required type="text" placeholder="Nama Produk">
+         </div>
+
+         <button class="button warning" disabled="disabled"> Rp.</button>
+         <div class="input-control text" style="width:45%;">
+             <input name="harga_jual" required type="text" onkeypress="return hanyaAngka(event, false)" placeholder="Harga Jual">
+             <button class="button info" disabled="disabled"> %</button>
+         </div>
+     </div>
+
+      <div class="cell" align="center">
+
+         <div class="input-control text" style="width:45%;margin-right:22px;">
+             <input name="stok" required type="text" onkeypress="return hanyaAngka(event, false)" placeholder="Stok">
+         </div>
+
+         <label class="switch">
+             <input type="checkbox" id="cekss">
+             <span class="check"></span>
+         </label>
+
+         <input type="hidden" id="sembunyi">
+         <div class="input-control text" style="width:45%; margin-left:0;">
+             <input name="disc" disabled  id="disc" type="text" onkeypress="return hanyaAngka(event, false)" placeholder="Discount">
+              <button class="button info" disabled="disabled"> %</button>
+         </div>
+     </div>
+
+      <div class="cell" align="center">
+
+
+
+     <div class="input-control select" style="width:45%; margin-right:3.5%; margin-bottom: 5%;">
+         <p class="place-left">Kategori</p>
+         <select name="kategori">
+             @foreach ( $kategori as $value )             
+              <option value="{!! $value->id !!}">{!! $value->nama !!}</option>              
+            @endforeach
+         </select>
+     </div>
+
+
+
+         <div class="input-control select" style="width:45%; margin-bottom: 5%; margin-left: 1.5%;" placeholder="Curr" >
+                 <p class="place-left">Curr</p>
+                 <select name="curr">
+                     @foreach ( $curr as $value )
+                     <option value="{!! $value->id !!}">{!! $value->nama !!}</option>
+                    @endforeach
+                 </select>
+         </div>
+
+         <div class="input-control select" style="width:45%; margin-bottom: 5%; margin-left: 1.5%;" placeholder="Vendor" >
+                 <p class="place-left">Vendor</p>
+                 <select name="vendor">
+                     @foreach ( $vendor as $value )
+                     <option value="{!! $value->id !!}">{!! $value->nama_vendor  !!}</option>
+                    @endforeach
+                 </select>
+         </div>
+
+
+
+      <div class="cell" align="left" style="margin-left:2%; margin-bottom: 5%;">
+
+         <div class="input-control select" style="width:46%; margin-bottom: 10%;" placeholder="Unit">
+                 <p class="place-left">Unit</p>
+                 <select name="unit">
+                     @foreach ( $unit as $value )
+                     <option value="{!! $value->id !!}">{!! $value->nama !!}</option>
+                    @endforeach
+                 </select>
+         </div>
+
+
+      <div class="input-control textarea" data-role="input" data-text-auto-resize="true" style="height:8%; width:46%; margin-left: 5%;">
+
+             <textarea required name="keterangan" placeholder="Keterangan Produk.."></textarea>
+     </div>
+
+<div class="place-left" >
+    <div class="form-group">
+            <label for="foto" class="col-sm-3 control-label">Foto</label>
+        <div class="col-sm-9">
+            <img id="imgfoto" src="{{asset('assets/img/avatar.jpg')}}" alt="your image" width="100" />
+            <input name="foto" type="file" id="foto" placeholder="Foto" style="margin-left: 1%;">
+        </div>
+    </div>
+</div>
+    
+    <div class="input-control text" style="width:45%;margin-right:0px;">
+        <input name="no_faktur" required type="text" placeholder="No Faktur">
+    </div>
+
+</div>
+
+      
+         </div>
+
+
+     <div class="cell" align="right" style="margin-right:22%;">
+             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+             <button type="submit" class="button success"><span class="mif-paper-plane mif-ani-float"></span>&nbsp;Simpan</button>
+             </form>
+             <!-- <a href="{!! url('/masterproduk') !!}"><button class="button danger"><span class="mif-cross"></span> Batal</button></a> -->
+     </div>
+ </div>
+
+ <script>
+
+   $("#cekss").on('click', function () {
+     if ($('#sembunyi').val()=="a") {
+     $('#disc').removeAttr("disabled", "disabled");
+     $('#sembunyi').val("b");
+     }
+
+     else
+     {
+         $('#sembunyi').val("a");
+         $('#disc').attr("disabled", "disabled");
+     }
+
+ });
+   </script>
+
+   <script>
+          function showDialog(id){
+              var dialog = $("#"+id).data('dialog');
+              if (!dialog.element.data('opened')) {
+                  dialog.open();
+              } else {
+                  dialog.close();
+              }
+          }
+      </script>
+
+
+ </body>
+</html>

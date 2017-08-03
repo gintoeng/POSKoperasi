@@ -1,0 +1,10 @@
+/vendor
+/node_modules
+/storage/framework/views
+Homestead.yaml
+Homestead.json
+.env
+.idea/
+.phpintel/
+.DS_Store
+*~

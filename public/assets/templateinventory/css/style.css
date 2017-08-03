@@ -1,0 +1,522 @@
+<style>
+body{
+	margin:0;
+	background-color:#369;
+	overflow:auto;
+}
+
+#btn1{
+	background:#F44336;
+	height:40%;
+	height:40%;
+	width:30%;
+	position:relative;
+	margin-left:10px;
+	left:900px;
+	
+	color:#FFF;
+	font-size:10px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:200px;
+	line-height:300px;
+	padding-left:10px;
+	text-align:left;
+	
+	
+}
+#btn2{
+	background:#27ae60;
+	height:40%;
+	height:40%;
+	width:30%;
+	position:relative;
+	margin-left:10px;
+	left:900px;
+	cursor:pointer;
+	
+
+	color:#FFF;
+	font-size:9px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:200px;
+	font-size:10px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:300px;
+	padding-left:10px;
+	text-align:left;
+}
+
+#btn3{
+	background:#e74c3c;
+	border-color:#F60;
+	height:40%;
+	height:40%;
+	width:30%;
+	position:relative;
+	margin-left:10px;
+	left:900px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:9px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:200px;
+	font-size:10px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:300px;
+	padding-left:10px;
+	text-align:left;
+}
+
+#btn4{
+	background:#00BCD4;
+	border-color:#F60;
+	height:40%;
+	height:40%;
+	width:30%;
+	position:relative;
+	margin-left:10px;
+	margin-top:30px;
+	left:900px;
+	
+	color:#FFF;
+	font-size:9px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:200px;
+	font-size:10px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:300px;
+	padding-left:10px;
+	text-align:left;
+}
+#btn5{
+	background:#f1c40f;
+	border-color:#F60;
+	height:40%;
+	height:40%;
+	width:30%;
+	position:relative;
+	margin-left:10px;
+	margin-top:30px;
+	left:900px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:9px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:200px;
+	font-size:10px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:300px;
+	padding-right:10px;
+	text-align:left;
+}
+
+#btn6{
+	background:#3498db;
+	height:40%;
+	height:40%;
+	width:30%;
+	position:relative;
+	margin-left:10px;
+	margin-top:30px;
+	left:900px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:9px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:200px;
+	font-size:10px;
+	font-style: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:300px;
+	text-align:right;
+	padding-right: 10px
+}
+#btntotal
+{
+	background:#f39c12;
+	height: 120px;
+	width: 600px;
+	position: relative;
+
+
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-align:left;
+	padding-right: 10px
+}
+.btnceksaldo{
+	background:#8e44ad;
+	height:40px;
+	width:170px;
+	position:absolute;
+	left:475px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 20px;
+	padding-top: 7px;
+	padding-right: 10px
+	
+}
+.btnhold{
+	background:#7f8c8d;
+	height:40px;
+	width:120px;
+	position:absolute;
+	left:655px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 20px;
+	padding-top: 7px;
+	padding-right: 10px
+}
+#btncaribarang{
+	background:#3498db;
+	height:45px;
+	width:175px;
+	position:absolute;
+	left:1118px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-right: 10px
+}
+#btndpbatal{
+	background:#c0392b;
+	height:45px;
+	width:125px;
+	position:absolute;
+	left:970px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:24px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left:20px;
+	padding-top: 5px;
+	padding-right: 10px
+}
+#btndpenter{
+	background:#3498db;
+	height:45px;
+	width:175px;
+	position:absolute;
+	left:1119px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:24px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 18px;
+	padding-top: 5px;
+	padding-right: 10px
+}
+#btncaribarang2{
+	background:#3498db;
+	height:47px;
+	width:88px;
+	position:absolute;
+	left:1220px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:24px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 22px;
+	padding-top: 5px;
+	padding-right: 10px
+}
+#btnhapusproduk{
+	background:#d35400;
+	height:40px;
+	width:205px;
+	position:absolute;
+	left:785px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 20px;
+	padding-top: 7px;
+	padding-right: 10px
+}
+.btnvoid{
+	background:#c0392b;
+	height:40px;
+	width:115px;
+	position:absolute;
+	left:1000px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 20px;
+	padding-top: 7px;
+	padding-right: 10px
+}
+.btnpayment{
+	background:#27ae60;
+	height:40px;
+	width:170px;
+	position:absolute;
+	left:1125px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 20px;
+	padding-top: 7px;
+	padding-right: 10px
+}
+
+#btnesc{
+	background:#d35400;
+	height:40px;
+	width:70px;
+	position:absolute;
+	left:525px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 20px;
+	padding-top: 8px;
+	padding-right: 10px
+}
+#btnf2{
+	background:#3498db;
+	height:40px;
+	width:50px;
+	position:absolute;
+	left:740px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 15px;
+	padding-top: 8px;
+	padding-right: 10px
+}
+#btnenter{
+	background:#c0392b;
+	height:40px;
+	width:140px;
+	position:absolute;
+	left:1000px;
+	cursor:pointer;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 22px;
+	padding-top: 8px;
+	padding-right: 10px
+}
+#btnlebar{
+	background:#3498db;
+	height:40px;
+	width:1235px;
+	position:absolute;
+	left:10px;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 22px;
+	padding-top: 8px;
+	padding-right: 10px
+}
+#btnlebar2{
+	background:#59ABE3;
+	height:40px;
+	width:1165px;
+	position:absolute;
+	left:10px;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-left: 22px;
+	padding-top: 8px;
+	padding-right: 10px
+}
+
+
+#content{
+	background:#369;
+	height:480px;
+	width:750px;
+	position:relative;
+	top:500px;
+	z-index:0;
+}
+
+#backbutton{
+	position:relative;
+	left:760px;
+	cursor:pointer;
+	top:10px;
+}
+
+#caption{
+	position:relative;
+	top:10px;
+	
+	color:#FFF;
+	font-size:45px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#caption2{
+	position:relative;
+	top:60px;
+	
+	color:#FFF;
+	font-size:45px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#labeltotal{
+	position:relative;
+	top:-5px;
+	
+	color:#FFF;
+	font-size:24px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#labelkasir{
+	position:absolute;
+	top:50px;
+	
+	color:#FFF;
+	font-size:24px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#labelnoref{
+	position:absolute;
+	top:85px;
+	
+	color:#FFF;
+	font-size:20px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#labeltanggal{
+	position:absolute;
+	top:115px;
+	
+	color:#FFF;
+	font-size:20px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#labelkasir1{
+	position:absolute;
+	top:50px;
+	
+	color:#FFF;
+	font-size:18px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#pagecaption{
+	position:relative;
+	top:-60px;
+	
+	color:#FFF;
+	font-size:25px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:220px;
+  overflow:auto;  
+  margin-top:-11px;
+  background: white;
+}
+#table-scroll3 {
+  height:260px;
+  overflow:auto;  
+  margin-top:-11px;
+  background: white;
+}
+#table-scroll2 {
+  height:400px;
+  overflow:auto;  
+  margin-top:-11px;
+  background: white;
+}
+#produk
+{
+color: white;
+}
+#qty
+{
+color: white;
+}
+#total
+{
+color: white;
+}
+#subtotal
+{
+color: white;
+}
+#transparan1
+{
+	background:rgba(0,0,0,0.4);
+}
+.fadeee{
+            display: none;
+            position: fixed;
+            width: 100%;
+            top: 0%;
+            left: 0px;
+            height: 100%;
+            background-color: #000;
+            -moz-opacity: 0.7;
+            opacity:.70;
+            filter: alpha(opacity=70);
+}
+ .lighte{
+            display: none;
+            position: fixed;
+            top: -7%;
+            left: 20%;
+            width: 0%;
+            height: 0%;                
+            padding: 10px;
+            border: 0px solid #FFF;
+            background: #CCC;
+            z-index:1002;
+            overflow:visible;
+        }
+ .text-area
+ {
+width: 10px;
+ }

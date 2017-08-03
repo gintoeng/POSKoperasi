@@ -1,0 +1,90 @@
+@extends('layouts.master')
+
+@section('content')
+
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;"><i class="ti-home mr5"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;">Master</a>
+        </li>
+        <li class="active"><a href="{!! url('master/kolektibilitas') !!}">Daftar Kolektibilitas</a></li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <!-- <header class="panel-heading">Test Panel</header>-->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-left">
+                                <a href="{!! url('master/kolektibilitas/export') !!}" class="btn btn-warning mb15"><i class="ti ti-export"></i> Export</a>
+                            </div>
+                            <form class="form-inline" role="form" method="get" action="{{ url('master/kolektibilitas/search') }}">
+                                <div class="form-group mr5">
+                                    <label class="control-label" for="cari">&nbsp;&nbsp;&nbsp;</label>
+                                    <input name="query" type="text" class="form-control" placeholder="Cari kolektibilitas" value="{{ $query }}" id="cari">
+                                </div>
+                                <input type="hidden" name="search" value="1">
+                                <button type="submit" class="btn btn-sm btn-primary"><i class="ti ti-search"> Cari</i></button>
+                                <a href="{!! url('master/kolektibilitas') !!}"><button type="button" class="btn btn-color btn-sm"><i class="ti ti-reload"> Reset</i></button></a>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="pull-right">
+                        Total data ditemukan : {!! $jml !!}
+                    </div>
+                    @if(session('alert'))
+                        <br/><br/>
+                        {!! session('alert') !!}
+                    @endif
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive no-border">
+                                <table class="table table-bordered table-striped no-m">
+                                    <thead>
+                                    <tr class="bg-color">
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Kode</th>
+                                        <th class="text-center">Keterangan</th>
+                                        <th class="text-center">Batas Hari</th>
+                                        {{--<th class="text-center">ID</th>--}}
+                                        <th class="text-center">Option</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php $i = ($kolektibilitas->currentPage() - 1) * $kolektibilitas->perPage() + 1; ?>
+                                    @foreach($kolektibilitas as $value)
+                                        <tr>
+                                            <td class="text-center">{!! $i++ !!}</td>
+                                            <td>{!! $value->kode !!}</td>
+                                            <td>{!! $value->keterangan !!}</td>
+                                            <td class="text-center">{!! $value->batas_hari !!}</td>
+                                            {{--<td class="text-center" style="background-color: rgba(34, 138, 255, 0.11)">{!! $value->id !!}</td>--}}
+                                            <td align="center" class="fa-hover">
+                                                <a href="{!! url('master/kolektibilitas/'.$value->id.'/edit') !!}" data-toggle="tooltip" data-placement="left" title="Ubah"><i class="ti-pencil mr5" style="color: blue; font-size: medium"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pull-right">
+{{--                                        {!! str_replace('?','?query='.$query.'&',$kolektibilitas->links()) !!}--}}
+                                        {!! $kolektibilitas->appends(['query' => $query])->links() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+@stop

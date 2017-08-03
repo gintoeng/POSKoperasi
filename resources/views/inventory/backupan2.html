@@ -1,0 +1,217 @@
+<!Doctype <!DOCTYPE html>
+<html>
+<head>
+
+    <title>Ubah Produk</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset ('assets/templateinventory/inventory.ico') }}">
+        <link href="{{ asset('assets/templateinventory/css/metro-icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/templateinventory/css/metro-schemes.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/templateinventory/css/metro.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/templateinventory/css/docs.css') }}" rel="stylesheet">
+        <script src="{{ asset('assets/templateinventory/js/jquery-2.1.3.min.js') }}"></script>
+        <script src="{{ asset('assets/templateinventory/js/metro.js') }}"></script>
+        <script src="{{ asset('assets/templateinventory/js/docs.js') }}"></script>
+        <script src="{{ asset('assets/templateinventory/js/select2.min.js') }}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ asset ('assets/templateinventory/css/style.css') }}">
+<script type="text/javascript" src="{{ asset ('assets/templateinventory/js/TweenLite.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('assets/templateinventory/js/TweenMax.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('assets/templateinventory/js/jquery-1.8.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('assets/templateinventory/js/gerak.js') }}"></script>
+
+<script language="javascript">
+    function hanyaAngka(e, decimal) {
+    var key;
+    var keychar;
+     if (window.event) {
+         key = window.event.keyCode;
+     } else
+     if (e) {
+         key = e.which;
+     } else return true;
+  
+    keychar = String.fromCharCode(key);
+    if ((key==null) || (key==0) || (key==8) ||  (key==9) || (key==13) || (key==27) ) {
+        return true;
+    } else
+    if ((("0123456789").indexOf(keychar) > -1)) {
+        return true;
+    } else
+    if (decimal && (keychar == ".")) {
+        return true;
+    } else return false;
+    }
+</script>
+<script type="text/javascript">
+$(document).on('click','input[type=button]', function() {
+               buttonVal = $(this).val();
+    if(buttonVal == 'Open' )
+    {
+        $(this).prop("disabled", true);
+        $('#holdButton,#closeButton').prop("disabled", false);
+    }
+    else
+    {
+         $('#holdButton,#closeButton').prop("disabled", true);
+         $('#openButton').prop("disabled", false);
+    }
+});
+</script>
+
+        <style> 
+        body{
+            margin:0;
+            background-color:#369;
+            }
+        </style>
+
+<div class="app-bar navy" data-role="appbar">
+        <a class="app-bar-element" href="{!! url('/inventory') !!}"><img style="height: 28px; display: inline-block; margin-right: 10px;" src="{{asset('assets/templateinventory/images/inventory.png') }}"> &nbsp; Menu Utama</a>
+        <a href="{!! url('/login') !!}" class="app-bar-element place-right"> <span class="mif-switch"></span> Log Out</a>
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">   
+         <li>
+          <a href="" class="dropdown-toggle"> <span class="mif-enter"></span> Pindah Ke</a>
+            <ul class="d-menu" data-role="dropdown">
+                <li><a href="/lapbarangmasuk">  <span class="mif-file-excel"></span> &nbsp;Laporan Barang Masuk</a></li>
+                <li><a href="/lapbarangkeluar">  <span class="mif-file-excel"></span> &nbsp;Laporan Barang Keluar</a></li>                
+                <li><a href="/masterproduk">  <span class="mif-database"></span> &nbsp;Master Produk</a></li>
+                <li><a href="/masterkonfigurasi">  <span class="mif-tools"></span> &nbsp;Master Konfigurasi</a></li>
+        </li>     
+    </div>
+
+</head>
+
+<body bgcolor="#369;">  
+      
+    
+     <a href="{!! url('/masterproduk') !!}"><div id="caption" style="height:80px; margin-left:20px; margin-top:60px;float:left; margin-right:40px; position:absolute"><img src="{{ asset('assets/templateinventory/icon/1.png') }}"> Ubah Produk </div></a>   
+
+
+       <div style="margin-top:8%"> 
+       <div class="panel" style="bgcolor:#369; padding">
+            <div class="heading">
+        <span class="icon mif-dropbox"></span>
+        <span class="title">Ubah Produk</span>
+    </div>
+
+<div class="content">
+    <form action="{!!url('updateproduk/'.$produk->id)!!}" method="POST">
+    <div class="cell" align="center">
+        
+        <div class="input-control text" style="width:25%;margin-right:10px;">
+            <input required name="barcode" value="{!!$produk->barcode!!}" type="numeric" onkeypress="return hanyaAngka(event, false)" placeholder="Barcode Produk">            
+        </div>
+        
+        <button class="button success" disabled="disabled"> Rp.</button>
+        <div class="input-control text" style="width:25%; margin-left:0;">            
+            <input required name="harga_beli" value="{!!$produk->harga_beli!!}" type="text" onkeypress="return hanyaAngka(event, false)" placeholder="Harga Beli">            
+        </div>
+    </div>
+
+     <div class="cell" align="center">
+        
+        <div class="input-control text" style="width:25%;margin-right:10px;">
+            <input required name="nama_produk" value="{!!$produk->nama!!}" type="text" placeholder="Nama Produk">            
+        </div>
+        
+        <button class="button warning" disabled="disabled"> Rp.</button>
+        <div class="input-control text" style="width:25%; margin-left:0;">            
+            <input required name="harga_jual" value="{!!$produk->harga_jual!!}" type="text" onkeypress="return hanyaAngka(event, false)" placeholder="Harga Jual">  
+            <button class="button info" disabled="disabled"> %</button>          
+        </div>
+    </div>
+
+     <div class="cell" align="center">
+        
+        <div class="input-control text" style="width:25%;margin-right:22px;">
+            <input required name="stok" value="{!!$produk->stok!!}" type="text" onkeypress="return hanyaAngka(event, false)" placeholder="Stok">            
+        </div>
+        
+        <label class="switch">
+            <input type="checkbox">
+            <span class="check"></span>
+        </label>
+        
+        <div class="input-control text" style="width:25%; margin-left:0;">            
+            <input required name="disc" value="{!!$produk->disc!!}" type="text" onkeypress="return hanyaAngka(event, false)" placeholder="Discount">  
+             <button class="button info" disabled="disabled"> %</button>          
+        </div>
+    </div>
+
+     <div class="cell" align="center">
+        
+        
+
+     <div class="input-control select" style="width:25%; margin-right:5%;">
+        <select name="kategori">
+            <option>Kategori</option>
+            @foreach ( $kategori as $value )
+             <option value="{!! $value->id !!}">{!! $value->nama !!}</option>
+           @endforeach
+        </select>
+    </div>
+
+
+        
+     <div class="input-control textarea" data-role="input" data-text-auto-resize="true" style="height:8%; width:25%;">
+            
+            <textarea required name="keterangan" placeholder="Keterangan Produk.."></textarea>
+    </div>
+
+    </div>
+
+     <div class="cell" align="left" style="margin-top:0px; margin-left:305px;">
+        
+        <div class="input-control select" style="width:32%; margin-right:87px;" placeholder="Curr">
+               <select name="curr">
+                    <option>Curr</option>
+                    @foreach ( $curr as $value )
+                    <option value="{!! $value->id !!}">{!! $value->nama !!}</option>
+                   @endforeach
+                </select>
+        </div>
+
+    </div>
+
+     <div class="cell" align="left" style="margin-top:3px; margin-left:305px;">
+        
+        <div class="input-control select" style="width:32%; margin-right:87px;" placeholder="Curr">
+                <select name="unit">
+                    <option>Unit</option>
+                    @foreach ( $unit as $value )
+                    <option value="{!! $value->id !!}">{!! $value->nama !!}</option>
+                   @endforeach
+                </select>
+        </div>
+
+        </div>
+
+    <div class="cell" align="left" style="margin-top:3px; margin-left:305px;">
+         
+            <div class="input-control text" data-role="datepicker" style="width:32%;" placeholder="expired">
+                <input required name="datepicker" type="text">
+                <button class="button"><span class="mif-calendar"></span></button>
+            </div>
+
+            <label class="input-control checkbox" style="margin-left:69px;">
+                <input type="checkbox" checked>
+                <span class="check"></span>
+                <span class="caption">Ganti Harga</span>
+            </label>
+
+    </div>     
+    
+
+    <div class="cell" align="right" style="margin-right:305px;">
+            <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+            <button type="submit" class="button success"><span class="mif-paper-plane mif-ani-float"></span>&nbsp;Simpan</button>
+            </form>
+            <!-- <a href="{!! url('/masterproduk') !!}"><button class="button danger"><span class="mif-cross"></span> Batal</button></a> -->
+    </div>
+</div>
+
+
+</body>
+</html>
