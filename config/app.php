@@ -148,7 +148,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        'narutimateum\Toastr\ToastrServiceProvider',
+        'developerpratika\Toastr\ToastrServiceProvider',
         'Chumper\Zipper\ZipperServiceProvider',
         Backup\BackupServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
@@ -210,7 +210,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        'Toastr'    => 'narutimateum\Toastr\Facades\Toastr',
+        'Toastr'    => 'developerpratika\Toastr\Facades\Toastr',
         'Zipper'    => 'Chumper\Zipper\Zipper',
         'PDF'       => Barryvdh\DomPDF\Facade::class,
 
