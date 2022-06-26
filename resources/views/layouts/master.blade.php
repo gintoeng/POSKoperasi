@@ -71,7 +71,7 @@
 
 <body>
 <div class="se-pre-con"></div>
-{!! \narutimateum\Toastr\Facades\Toastr::render() !!}
+{!! \developerpratika\Toastr\Facades\Toastr::render() !!}
 
 <div class="app horizontal-layout">
 
